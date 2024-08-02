@@ -3,12 +3,16 @@ MODULE = $(notdir $(CURDIR))
 
 # dirs
 CWD = $(CURDIR)
+INC = $(CWD)/inc
+SRC = $(CWD)/src
+TMP = $(CWD)/tmp
 GH  = $(HOME)/.ghcup/bin
 
 # tool
 CURL  = curl -L -o
 CF    = clang-format -style=file -i
 GHCUP = $(GH)/ghcup
+GHC   = $(GH)/ghc
 
 # src
 C += $(wildcard src/*.c*)
@@ -17,11 +21,18 @@ F += lib/$(MODULE).ini $(wildcard lib/*.f)
 Z += $(wildcard src/*.hs)
 
 # cfg
-CFLAGS = -Iinc -Itmp
+CFLAGS  = -I$(INC) -I$(TMP)
+GHFLAGS = -odir=$(TMP) -hidir=$(TMP)
+# -no-keep-o-files -no-keep-hi-files
 
 # all
 .PHONY: all
 all: bin/$(MODULE) $(F)
+	$^
+
+# run
+.PHONY: run
+run: bin/hello $(F)
 	$^
 
 # format
@@ -33,6 +44,8 @@ tmp/format_cpp: $(C) $(H)
 # rule
 bin/$(MODULE): $(C) $(H)
 	$(CXX) $(CFLAGS) -o $@ $(C) $(L)
+bin/%: src/%.hs Makefile
+	$(GHC) $(GHFLAGS) -o $@ $(Z)
 
 # install
 .PHONY: install update ref gz
