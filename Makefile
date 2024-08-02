@@ -3,11 +3,12 @@ MODULE = $(notdir $(CURDIR))
 
 # dirs
 CWD = $(CURDIR)
+GH  = $(HOME)/.ghcup/bin
 
 # tool
 CURL  = curl -L -o
 CF    = clang-format -style=file -i
-GHCUP = ghcup
+GHCUP = $(GH)/ghcup
 
 # src
 C += $(wildcard src/*.c*)
@@ -52,7 +53,5 @@ $(GHCUP):
 		BOOTSTRAP_HASKELL_CABAL_VERSION=latest \
 			sh
 
-# 			BOOTSTRAP_HASKELL_INSTALL_STACK=1 
-# 	sh -s - install ghcup
-# # BOOTSTRAP_HASKELL_MINIMAL=1
-# curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+# BOOTSTRAP_HASKELL_INSTALL_STACK=1
+# BOOTSTRAP_HASKELL_MINIMAL=1
