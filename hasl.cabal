@@ -65,7 +65,7 @@ executable hasl
     main-is:          Main.hs
 
     -- Modules included in this executable, other than Main.
-    other-modules:    Lib
+    other-modules:    Lib AST
 
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
