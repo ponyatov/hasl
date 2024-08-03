@@ -78,4 +78,6 @@ executable hasl
 
     -- Base language which the package is written in.
     default-language: Haskell2010
+
     ghc-options: -odir=tmp -hidir=tmp
+    -- ghc-optimization: 0
