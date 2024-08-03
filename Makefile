@@ -6,6 +6,7 @@ CWD = $(CURDIR)
 INC = $(CWD)/inc
 SRC = $(CWD)/src
 TMP = $(CWD)/tmp
+GZ  = $(HOME)/gz
 GH  = $(HOME)/.ghcup/bin
 
 # tool
@@ -49,13 +50,19 @@ bin/%: src/%.hs Makefile
 
 # install
 .PHONY: install update ref gz
-install: ref gz ghc
-	$(MAKE) update
-update:
+install: ref gz keys
+	$(MAKE) update ghc
+update: keys
 	sudo apt update
 	sudo apt install -uy `cat apt.txt`
 ref:
 gz:
+
+.PHONY: keys
+keys: $(GZ)/packages-microsoft-prod.deb
+	sudo dpkg -i $<
+$(GZ)/packages-microsoft-prod.deb:
+	$(CURL) $@ https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb
 
 $(GHCUP):
 	$(MAKE) ghc
