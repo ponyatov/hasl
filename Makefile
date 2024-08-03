@@ -51,9 +51,14 @@ bin/%: src/%.hs Makefile
 # doc
 .PHONY: doc
 doc: \
-	doc/WYAH.pdf
+	doc/WYAH.pdf doc/ohaskell.pdf
 doc/%: ~/doc/Haskell/%
 	ln -fs $< $@
+
+~/doc/Haskell/WYAH.pdf:
+	$(CURL) $@ https://smunix.github.io/dev.stephendiehl.com/fun/WYAH.pdf
+~/doc/Haskell/ohaskell.pdf:
+	$(CURL) $@ https://www.ohaskell.guide/pdf/ohaskell.pdf
 
 # install
 .PHONY: install update ref gz
