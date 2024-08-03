@@ -1,4 +1,3 @@
 module AST where
 
-data Expr e = Num Int
- 
+data AST e = Num Int
