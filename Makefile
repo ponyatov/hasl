@@ -19,7 +19,7 @@ GHC   = $(GH)/ghc
 C += $(wildcard src/*.c*)
 H += $(wildcard src/*.h*)
 F += lib/$(MODULE).ini $(wildcard lib/*.f)
-Z += $(wildcard src/*.hs)
+Z += $(wildcard app/*.hs)
 
 # cfg
 CFLAGS  = -I$(INC) -I$(TMP)
