@@ -14,6 +14,7 @@ CURL  = curl -L -o
 CF    = clang-format -style=file -i
 GHCUP = $(GH)/ghcup
 GHC   = $(GH)/ghc
+CABAL = $(GH)/cabal
 
 # src
 C += $(wildcard src/*.c*)
@@ -34,7 +35,7 @@ all: bin/$(MODULE) $(F)
 # run
 .PHONY: run
 run: $(Z) $(F)
-	cabal run $(MODULE) -- $(F)
+	$(CABAL) run $(MODULE) -- $(F)
 
 # format
 .PHONY: format
@@ -67,6 +68,7 @@ install: ref gz doc keys
 update: keys
 	sudo apt update
 	sudo apt install -uy `cat apt.txt`
+	$(CABAL) update
 ref:
 gz:
 
