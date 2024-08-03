@@ -66,10 +66,15 @@ ref:
 gz:
 
 .PHONY: keys
-keys: $(GZ)/packages-microsoft-prod.deb
+keys: \
+	/etc/apt/sources.list.d/microsoft-prod.list \
+	/etc/apt/trusted.gpg.d/microsoft.asc
+/etc/apt/sources.list.d/microsoft-prod.list: $(GZ)/packages-microsoft-prod.deb
 	sudo dpkg -i $<
 $(GZ)/packages-microsoft-prod.deb:
 	$(CURL) $@ https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb
+/etc/apt/trusted.gpg.d/microsoft.asc:
+	sudo $(CURL) $@ https://packages.microsoft.com/keys/microsoft.asc
 
 $(GHCUP):
 	$(MAKE) ghc
