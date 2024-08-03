@@ -1,4 +1,8 @@
 module Main where
 
+import System.Environment (getArgs)
+
 main :: IO ()
-main = putStrLn "Hello, Haskell!"
+main = do
+    putStrLn "Hello, Haskell!"
+    getArgs >>= print

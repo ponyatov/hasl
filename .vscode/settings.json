@@ -16,6 +16,7 @@
 
     // files
     "files.exclude": {
+        "dist-newstyle": true,
     },
     "files.watcherExclude": {
     },

@@ -33,8 +33,8 @@ all: bin/$(MODULE) $(F)
 
 # run
 .PHONY: run
-run: bin/hello $(F)
-	$^
+run: $(Z) $(F)
+	cabal run $(MODULE) -- $(F)
 
 # format
 .PHONY: format
