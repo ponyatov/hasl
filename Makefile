@@ -48,9 +48,16 @@ bin/$(MODULE): $(C) $(H)
 bin/%: src/%.hs Makefile
 	$(GHC) $(GHFLAGS) -o $@ $(Z)
 
+# doc
+.PHONY: doc
+doc: \
+	doc/WYAH.pdf
+doc/%: ~/doc/Haskell/%
+	ln -fs $< $@
+
 # install
 .PHONY: install update ref gz
-install: ref gz keys
+install: ref gz doc keys
 	$(MAKE) update ghc
 update: keys
 	sudo apt update
