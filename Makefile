@@ -49,7 +49,7 @@ bin/%: src/%.hs Makefile
 
 # install
 .PHONY: install update ref gz
-install: ref gz $(GHCUP)
+install: ref gz ghc
 	$(MAKE) update
 update:
 	sudo apt update
@@ -58,6 +58,9 @@ ref:
 gz:
 
 $(GHCUP):
+	$(MAKE) ghc
+.PHONY: ghc
+ghc:
 	curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | \
 		BOOTSTRAP_HASKELL_NONINTERACTIVE=1 \
 		BOOTSTRAP_HASKELL_INSTALL_HLS=1 \
