@@ -47,5 +47,10 @@
     "C_Cpp.intelliSenseEngine": "Tag Parser",
 
     // Haskell
+    // ghcup install hls latest --set
     "haskell.manageHLS": "GHCup",
+    "haskell.ghcupExecutablePath": "${userHome}/.ghcup/bin/ghcup",
+    "haskell.toolchain": {
+
+    },
 }

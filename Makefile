@@ -52,7 +52,7 @@ bin/%: src/%.hs Makefile
 # doc
 .PHONY: doc
 doc: \
-	doc/WYAH.pdf doc/ohaskell.pdf
+	doc/WYAH.pdf doc/ohaskell.pdf doc/Write_Yourself_a_Scheme_in_48_Hours.pdf
 doc/%: ~/doc/Haskell/%
 	ln -fs $< $@
 
@@ -60,6 +60,8 @@ doc/%: ~/doc/Haskell/%
 	$(CURL) $@ https://smunix.github.io/dev.stephendiehl.com/fun/WYAH.pdf
 ~/doc/Haskell/ohaskell.pdf:
 	$(CURL) $@ https://www.ohaskell.guide/pdf/ohaskell.pdf
+~/doc/Haskell/Write_Yourself_a_Scheme_in_48_Hours.pdf:
+	$(CURL) $@ https://upload.wikimedia.org/wikipedia/commons/a/aa/Write_Yourself_a_Scheme_in_48_Hours.pdf
 
 # install
 .PHONY: install update ref gz
