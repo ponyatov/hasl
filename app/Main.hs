@@ -12,6 +12,9 @@ main = do
 square :: (Num a) => a -> a
 square v = v * v
 
+isquare :: Int -> Int
+isquare v = v * v
+
 -- square 2
 -- (+) 1 2
--- p.24
+-- p.28
