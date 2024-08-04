@@ -49,8 +49,5 @@
     // Haskell
     // ghcup install hls latest --set
     "haskell.manageHLS": "GHCup",
-    "haskell.ghcupExecutablePath": "${userHome}/.ghcup/bin/ghcup",
-    "haskell.toolchain": {
-
-    },
+    "haskell.ghcupExecutablePath": "~/.ghcup/bin/ghcup",
 }
