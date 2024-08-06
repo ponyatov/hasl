@@ -66,11 +66,11 @@ doc/%: ~/doc/Haskell/%
 # install
 .PHONY: install update ref gz
 install: ref gz doc keys
-	$(MAKE) update ghc
+	$(MAKE) update
 update: keys
 	sudo apt update
 	sudo apt install -uy `cat apt.txt`
-	$(CABAL) update
+	$(MAKE) ghc
 ref:
 gz:
 
@@ -90,12 +90,11 @@ $(GHCUP):
 .PHONY: ghc
 ghc:
 	curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | \
-		BOOTSTRAP_HASKELL_NONINTERACTIVE=1 \
-		BOOTSTRAP_HASKELL_INSTALL_HLS=1 \
-		BOOTSTRAP_HASKELL_ADJUST_BASHRC=Y \
-		BOOTSTRAP_HASKELL_GHC_VERSION=latest \
+		BOOTSTRAP_HASKELL_NONINTERACTIVE=1     \
+		BOOTSTRAP_HASKELL_INSTALL_HLS=1        \
+		BOOTSTRAP_HASKELL_INSTALL_STACK=1      \
+		BOOTSTRAP_HASKELL_GHC_VERSION=latest   \
 		BOOTSTRAP_HASKELL_CABAL_VERSION=latest \
+		BOOTSTRAP_HASKELL_STACK_VERSION=latest \
 			sh
-
-# BOOTSTRAP_HASKELL_INSTALL_STACK=1
-# BOOTSTRAP_HASKELL_MINIMAL=1
+# BOOTSTRAP_HASKELL_ADJUST_BASHRC=Y
