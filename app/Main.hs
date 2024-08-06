@@ -15,6 +15,9 @@ square v = v * v
 isquare :: Int -> Int
 isquare v = v * v
 
+prod :: (Num a) => a -> a -> a
+prod x y = x * y
+
 -- square 2
 -- (+) 1 2
 -- p.28

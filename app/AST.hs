@@ -1,3 +1,5 @@
 module AST where
 
-data AST e = Num Int
+data AST e
+  = Num Int
+  | Var String
