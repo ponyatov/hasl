@@ -1,9 +1,9 @@
 module Main where
 
-import System.Environment (getArgs)
-
 import Lib
 import Parser
+import System.Environment (getArgs)
+
 -- import AST
 
 main :: IO ()
@@ -25,4 +25,4 @@ prod x y = x * y
 pi :: Double
 pi = 3.1415
 
--- p.34
+-- p.38
