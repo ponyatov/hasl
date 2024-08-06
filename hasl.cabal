@@ -72,7 +72,6 @@ executable hasl
 
     -- Other library packages from which modules are imported.
     build-depends:    base ^>=4.20.0.0
-                    , HUnit
 
     -- Directories containing source files.
     hs-source-dirs:   app
@@ -82,3 +81,13 @@ executable hasl
 
     ghc-options: -odir=tmp -hidir=tmp
     -- ghc-optimization: 0
+
+    exposed-modules: Parser
+
+test-suite test
+    type: exitcode-stdio-1.0
+    hs-source-dirs: test
+    main-is: ParserTest.hs
+    build-depends:    base ^>=4.20.0.0
+                    , HUnit
+                    , hasl
