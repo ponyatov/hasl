@@ -13,19 +13,4 @@ main = do
   Lib.some
   Parser.test
 
-double :: (Num a) => a -> a
-double x = x + x
-
-square :: (Num a) => a -> a
-square v = v * v
-
-isquare :: Int -> Int
-isquare v = v * v
-
-prod :: (Num a) => a -> a -> a
-prod x y = x * y
-
-pi :: Double
-pi = 3.1415
-
 -- p.38
