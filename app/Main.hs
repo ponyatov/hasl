@@ -13,6 +13,13 @@ main = do
   Lib.some
   Parser.test
 
+zum :: (Num t) => [t] -> t
+zum [] = 0
+zum (n : ns) = n + zum ns
+
+double :: (Num a) => a -> a
+double x = x + x
+
 square :: (Num a) => a -> a
 square v = v * v
 
