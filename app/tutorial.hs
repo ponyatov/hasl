@@ -36,3 +36,11 @@ seqn (act : acts) = do
   x <- act
   xs <- seqn acts
   return (x : xs)
+
+-- p.30
+
+double x = x + x
+
+quadruple x = double (double x)
+
+quadruple 10
