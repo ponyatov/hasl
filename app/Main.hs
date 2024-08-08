@@ -17,6 +17,14 @@ zum :: (Num t) => [t] -> t
 zum [] = 0
 zum (n : ns) = n + zum ns
 
+qsort :: (Ord a) => [a] -> [a]
+qsort [] = []
+qsort [x] = [x]
+qsort (x : xs) = qsort smaller ++ [x] ++ qsort larger
+  where
+    smaller = [a | a <- xs, a <= x]
+    larger = [b | b <- xs, b > x]
+
 double :: (Num a) => a -> a
 double x = x + x
 
