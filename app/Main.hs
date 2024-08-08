@@ -13,22 +13,6 @@ main = do
   Lib.some
   Parser.test
 
-qsort :: (Ord a) => [a] -> [a]
-qsort [] = []
-qsort [x] = [x]
-qsort (x : xs) = qsort smaller ++ [x] ++ qsort larger
-  where
-    smaller = [a | a <- xs, a <= x]
-    larger = [b | b <- xs, b > x]
-
-seqn :: (Monad m) => [m a] -> m [a]
--- seqn :: [IO a] -> IO [a]
-seqn [] = return []
-seqn (act : acts) = do
-  x <- act
-  xs <- seqn acts
-  return (x : xs)
-
 double :: (Num a) => a -> a
 double x = x + x
 
