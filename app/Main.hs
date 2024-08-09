@@ -25,4 +25,4 @@ prod x y = x * y
 pi :: Double
 pi = 3.1415
 
--- p.38
+-- p.39
