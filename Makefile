@@ -37,6 +37,11 @@ all: bin/$(MODULE) $(F)
 run: $(Z) $(F)
 	$(CABAL) run $(MODULE) -- $(F)
 
+# tut
+.PHONY: tut
+tut: $(Z) $(F)
+	app/tutorial.hs
+
 # format
 .PHONY: format
 format: tmp/format_cpp

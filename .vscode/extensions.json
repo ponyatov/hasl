@@ -17,5 +17,7 @@
         // "ms-vscode.cmake-tools",
         // Haskell
         "haskell.haskell",
+        // CNC
+        "vscode-gcode.gcode",
     ]
 }
