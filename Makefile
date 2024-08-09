@@ -40,7 +40,7 @@ run: $(Z) $(F)
 # tut
 .PHONY: tut
 tut: $(Z) $(F)
-	app/tutorial.hs
+	app/Scheme.hs
 
 # format
 .PHONY: format

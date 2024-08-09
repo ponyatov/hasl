@@ -39,8 +39,10 @@ seqn (act : acts) = do
 
 -- p.30
 
-double x = x + x
-
 quadruple x = double (double x)
 
-quadruple 10
+-- quadruple 10
+
+factorial n = product [1 .. n]
+
+average ns = sum ns `div` length ns
