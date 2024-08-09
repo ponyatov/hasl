@@ -57,7 +57,8 @@ bin/%: src/%.hs Makefile
 # doc
 .PHONY: doc
 doc: \
-	doc/WYAH.pdf doc/ohaskell.pdf doc/Write_Yourself_a_Scheme_in_48_Hours.pdf
+	doc/WYAH.pdf doc/ohaskell.pdf doc/Write_Yourself_a_Scheme_in_48_Hours.pdf \
+	doc/Programming_in_Haskell_-_Graham_Hutton.pdf
 doc/%: ~/doc/Haskell/%
 	ln -fs $< $@
 
