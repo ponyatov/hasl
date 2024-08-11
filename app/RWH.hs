@@ -1,12 +1,9 @@
-#!/usr/bin/env runhaskell
+add a b = a + b
 
--- Real World Haskell
+-- pp rwh.40
 
--- file: ch01/WC.hs
--- lines beginning with "--" are comments.
-main = interact wordCount
-  where
-    wordCount input = show (length (lines input)) ++ "\n"
+add 1 2
 
--- rwh.28
--- cat app/RWH.hs | app/RWH.hs
+x = 10
+x = 11
+print x
