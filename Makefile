@@ -20,7 +20,7 @@ CABAL = $(GH)/cabal
 C += $(wildcard src/*.c*)
 H += $(wildcard src/*.h*)
 F += lib/$(MODULE).ini $(wildcard lib/*.f)
-Z += $(wildcard app/*.hs)
+S += $(wildcard app/*.hs)
 
 # cfg
 CFLAGS  = -I$(INC) -I$(TMP)
@@ -34,13 +34,16 @@ all: bin/$(MODULE) $(F)
 
 # run
 .PHONY: run
-run: $(Z) $(F)
+run: $(S) $(F)
 	$(CABAL) run $(MODULE) -- $(F)
 
-# tut
-.PHONY: tut
-tut: $(Z) $(F)
-	app/Scheme.hs
+# tutorial
+.PHONY: sch
+sch: $(S) $(F)
+	app/Scheme.hs $(F)
+.PHONY: rwh
+rwh: $(S) $(F)
+	app/RWH.hs $(F)
 
 # format
 .PHONY: format
@@ -52,7 +55,7 @@ tmp/format_cpp: $(C) $(H)
 bin/$(MODULE): $(C) $(H)
 	$(CXX) $(CFLAGS) -o $@ $(C) $(L)
 bin/%: src/%.hs Makefile
-	$(GHC) $(GHFLAGS) -o $@ $(Z)
+	$(GHC) $(GHFLAGS) -o $@ $(S)
 
 # doc
 .PHONY: doc
