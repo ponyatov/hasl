@@ -2,22 +2,10 @@
 
 -- Real World Haskell
 
-main = print "Hello"
-
--- file: ch00/KMinima.hs
+-- file: ch01/WC.hs
 -- lines beginning with "--" are comments.
-minima k xs = take k (sort xs)
+main = interact wordCount
+  where
+    wordCount input = show (length (lines input)) ++ "\n"
 
--- rwh.20
-
-let e = exp 1
-:info e
-
-(e ** pi) - pi
-
--- rwh.25
-:set +t
-'c'
-['l','i','s','t']
-"list"
-
+-- rwh.27
