@@ -8,4 +8,5 @@ main = interact wordCount
   where
     wordCount input = show (length (lines input)) ++ "\n"
 
--- rwh.27
+-- rwh.28
+-- cat app/RWH.hs | app/RWH.hs
