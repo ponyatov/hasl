@@ -23,3 +23,13 @@ x = 10
 --     else myDrop (n - 1) (tail xs)
 
 -- rwh.52
+
+-- | book info data structure
+data BookInfo
+  = Book
+      -- | book's identifier
+      Int
+      -- | title
+      String
+      [String]
+  deriving (Show)
