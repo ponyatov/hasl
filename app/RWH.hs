@@ -31,5 +31,10 @@ data BookInfo
       Int
       -- | title
       String
+      -- | names of its authors
       [String]
+  deriving (Show)
+
+data MagazineInfo
+  = Magazine Int String [String]
   deriving (Show)
