@@ -1,4 +1,10 @@
-add a b = a + b
+#!/usr/bin/env runhaskell
+
+import System.Environment (getArgs)
+
+main = do
+  putStrLn "Hello"
+  getArgs >>= print
 
 add a b = a + b
 
@@ -11,9 +17,9 @@ x = 10
 -- x = 11
 -- print x
 
-myDrop n xs =
-  if n <= 0 || null xs
-    then xs
-    else myDrop (n - 1) (tail xs)
+-- myDrop n xs =
+--   if n <= 0 || null xs
+--     then xs
+--     else myDrop (n - 1) (tail xs)
 
 -- rwh.52
