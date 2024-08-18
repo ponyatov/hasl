@@ -2,10 +2,6 @@
 
 import System.Environment (getArgs)
 
-main = do
-  putStrLn "Hello"
-  getArgs >>= print
-
 add a b = a + b
 
 -- pp rwh.40
@@ -38,3 +34,14 @@ data BookInfo
 data MagazineInfo
   = Magazine Int String [String]
   deriving (Show)
+
+main = do
+  putStrLn "Hello"
+  getArgs >>= print
+  print (Book 123 "Hello" [])
+
+myInfo =
+  Book
+    9780135072455
+    "Algebra of Programming"
+    ["Richard Bird", "Oege de Moor"]
